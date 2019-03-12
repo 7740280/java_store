@@ -11,6 +11,8 @@
     <title>$Title$</title>
 </head>
 <body>
-<jsp:forward page="/jsp/index.jsp"></jsp:forward>
+<%
+    request.getRequestDispatcher("/jsp/index.jsp").forward(request, response);
+%>
 </body>
 </html>

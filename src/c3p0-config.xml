@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<c3p0-config>
+  <default-config>
+    <property name="driverClass">com.mysql.jdbc.Driver</property>
+    <property name="jdbcUrl">jdbc:mysql://192.168.10.10:3306/java_store?useSSL=false&amp;characterEncoding=utf-8</property>
+    <property name="user">homestead</property>
+    <property name="password">secret</property>
+
+    <property name="initialPoolSize">5</property>
+    <property name="maxPoolSize">10</property>
+    <property name="checkoutTimeout">3000</property>
+  </default-config>
+
+  <named-config name="otherc3p0">
+
+  </named-config>
+</c3p0-config>

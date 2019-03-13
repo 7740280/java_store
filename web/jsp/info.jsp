@@ -73,7 +73,7 @@
 					<!-- /.container-fluid -->
 				</nav>
 			</div>
-
+			<h1>${msg}</h1>
 			<div class="container-fluid">
 				<div class="main_con">
 					<h2>公司简介</h2>

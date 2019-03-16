@@ -14,4 +14,16 @@ public class UserServiceImpl implements UserService
         UserDao userDao = new UserDaoImpl();
         userDao.register(user);
     }
+
+    public User getUserByToken(String token) throws SQLException
+    {
+        UserDao userDao = new UserDaoImpl();
+        return userDao.getUserByToken(token);
+    }
+
+    public void active(User user) throws SQLException
+    {
+        UserDao userDao = new UserDaoImpl();
+        userDao.active(user);
+    }
 }

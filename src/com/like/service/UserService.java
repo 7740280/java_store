@@ -7,4 +7,9 @@ import java.sql.SQLException;
 public interface UserService
 {
     void register(User user) throws SQLException;
+
+    User getUserByToken(String token) throws SQLException;
+
+    void active(User user) throws SQLException;
+
 }

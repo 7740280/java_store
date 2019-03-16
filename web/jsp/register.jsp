@@ -107,7 +107,7 @@
 
 
         <div class="col-md-8" style="background:#fff;padding:40px 80px;margin:30px;border:7px solid #ccc;">
-            <font>会员注册</font>USER REGISTER
+            <font>会员注册</font>USER REGISTER <p style="display: inline;color: red">${msg}</p>
             <form class="form-horizontal" style="margin-top:5px;" method="post"
                   action="${pageContext.request.contextPath }/user">
                 <input type="hidden" name="method" value="register">

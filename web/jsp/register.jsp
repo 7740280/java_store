@@ -108,36 +108,39 @@
 
         <div class="col-md-8" style="background:#fff;padding:40px 80px;margin:30px;border:7px solid #ccc;">
             <font>会员注册</font>USER REGISTER
-            <form class="form-horizontal" style="margin-top:5px;" method="post" action="${pageContext.request.contextPath }/user">
+            <form class="form-horizontal" style="margin-top:5px;" method="post"
+                  action="${pageContext.request.contextPath }/user">
                 <input type="hidden" name="method" value="register">
                 <div class="form-group">
                     <label for="username" class="col-sm-2 control-label">用户名</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="username" placeholder="请输入用户名" name="username">
+                        <input type="text" class="form-control" id="username" placeholder="请输入用户名" name="username"
+                               required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-2 control-label">密码</label>
                     <div class="col-sm-6">
-                        <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password">
+                        <input type="password" class="form-control" id="password" placeholder="请输入密码" name="password"
+                               required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="confirmpwd" class="col-sm-2 control-label">确认密码</label>
                     <div class="col-sm-6">
-                        <input type="password" class="form-control" id="confirmpwd" placeholder="请输入确认密码">
+                        <input type="password" class="form-control" id="confirmpwd" placeholder="请输入确认密码" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-6">
-                        <input type="email" class="form-control" id="Email" placeholder="Email" name="email">
+                        <input type="email" class="form-control" id="Email" placeholder="Email" name="email" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="usercaption" class="col-sm-2 control-label">姓名</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="name" placeholder="请输入姓名" name="name">
+                        <input type="text" class="form-control" id="name" placeholder="请输入姓名" name="name" required>
                     </div>
                 </div>
                 <div class="form-group opt">
@@ -154,7 +157,7 @@
                 <div class="form-group">
                     <label for="date" class="col-sm-2 control-label">出生日期</label>
                     <div class="col-sm-6">
-                        <input type="date" class="form-control" name="birthday" id="birthday">
+                        <input type="date" class="form-control" name="birthday" id="birthday" required>
                     </div>
                 </div>
 

@@ -26,4 +26,12 @@ public class UserServiceImpl implements UserService
         UserDao userDao = new UserDaoImpl();
         userDao.active(user);
     }
+
+    @Override
+    public User login(String username, String password) throws SQLException
+    {
+        UserDao userDao = new UserDaoImpl();
+        return userDao.login(username, password);
+    }
+
 }

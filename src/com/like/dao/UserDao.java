@@ -11,4 +11,6 @@ public interface UserDao
     User getUserByToken(String token) throws SQLException;
 
     void active(User user) throws SQLException;
+
+    User login(String username, String password) throws SQLException;
 }

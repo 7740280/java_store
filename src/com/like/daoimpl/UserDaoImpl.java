@@ -30,4 +30,12 @@ public class UserDaoImpl implements UserDao
         String      sql         = "update user set state = ? where uid = ?";
         queryRunner.update(sql, user.getState(), user.getUid());
     }
+
+    @Override
+    public User login(String username, String password) throws SQLException
+    {
+        QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
+        String      sql         = "select * from user where username = ? and password = ?";
+        return queryRunner.query(sql, new BeanHandler<User>(User.class), username, password);
+    }
 }

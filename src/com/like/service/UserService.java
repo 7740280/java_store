@@ -12,4 +12,5 @@ public interface UserService
 
     void active(User user) throws SQLException;
 
+    User login(String username, String password) throws SQLException;
 }

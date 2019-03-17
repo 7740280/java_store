@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 @WebServlet(name = "CategoryServlet", urlPatterns = "/category")
 public class CategoryServlet extends BaseServlet
@@ -21,9 +20,11 @@ public class CategoryServlet extends BaseServlet
         response.setCharacterEncoding("utf-8");
         try {
             CategoryService categoryService = new CategoryServiceImpl();
-            JSONArray       all             = categoryService.findAll();
+            //String       all             = categoryService.findAll();
+            //改为从redis中获取数据
+            String all = categoryService.findAllFromRedis();
             response.getWriter().print(all);
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
             request.setAttribute("msg", "查询分类失败");
         }

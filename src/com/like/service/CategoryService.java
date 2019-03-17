@@ -6,5 +6,7 @@ import java.sql.SQLException;
 
 public interface CategoryService
 {
-    JSONArray findAll() throws SQLException;
+    String findAll() throws SQLException;
+
+    String findAllFromRedis() throws SQLException;
 }

@@ -3,6 +3,7 @@ package com.like.serviceImpl;
 import com.like.dao.CategoryDao;
 import com.like.daoimpl.CategoryDaoImpl;
 import com.like.domain.Category;
+import com.like.domain.Product;
 import com.like.service.CategoryService;
 import com.like.utils.JedisUtils;
 import net.sf.json.JSONArray;

@@ -11,7 +11,7 @@
             data: {'method': 'allCategory'},
             success: function (data) {
                 $(data).each(function (index, value) {
-                    $('#nav').append("<li><a href=''>" + value.cname + "</a></li>");
+                    $('#nav').append("<li><a href='${pageContext.request.contextPath}/product?method=findByCategory&page=1&id=" + value.cid + "'>" + value.cname + "</a></li>");
                 });
             }
         })

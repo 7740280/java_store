@@ -5,6 +5,7 @@ import com.like.dao.ProductDao;
 import com.like.domain.Product;
 import com.like.utils.DataSourceUtils;
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
@@ -34,5 +35,13 @@ public class ProductDaoImpl implements ProductDao
         QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
         String      sql         = "select * from product where cid = ? limit ? , ?";
         return queryRunner.query(sql, new BeanListHandler<Product>(Product.class), id, i, pageSize);
+    }
+
+    @Override
+    public Product one(String id) throws SQLException
+    {
+        QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
+        String      sql         = "select * from product where pid = ? ";
+        return queryRunner.query(sql, new BeanHandler<Product>(Product.class), id);
     }
 }

@@ -12,4 +12,6 @@ public interface ProductDao
     int totalCount(String id) throws SQLException;
 
     List<Product> findList(String id, int i, int pageSize) throws SQLException;
+
+    Product one(String id) throws SQLException;
 }

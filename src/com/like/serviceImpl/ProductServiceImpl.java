@@ -39,4 +39,11 @@ public class ProductServiceImpl implements ProductService
 
         return pageBean;
     }
+
+    @Override
+    public Product one(String id) throws SQLException
+    {
+        ProductDao productDao = new ProductDaoImpl();
+        return productDao.one(id);
+    }
 }

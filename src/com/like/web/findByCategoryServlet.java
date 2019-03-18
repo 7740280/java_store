@@ -1,6 +1,7 @@
 package com.like.web;
 
 import com.like.domain.PageBean;
+import com.like.domain.Product;
 import com.like.service.ProductService;
 import com.like.serviceImpl.ProductServiceImpl;
 
@@ -34,5 +35,22 @@ public class findByCategoryServlet extends BaseServlet
         }
 
         return "/jsp/product_list.jsp";
+    }
+
+    public String find(HttpServletRequest request, HttpServletResponse response)
+    {
+        try {
+            String         id             = request.getParameter("id");
+            ProductService productService = new ProductServiceImpl();
+            Product        product        = productService.one(id);
+
+            request.setAttribute("product", product);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("msg", "没有查到该商品");
+            return "/jsp/info.jsp";
+        }
+
+        return "/jsp/product_info.jsp";
     }
 }

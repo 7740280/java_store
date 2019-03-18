@@ -42,7 +42,7 @@
     <c:if test="${not empty list.productList}">
         <c:forEach items="${list.productList}" var="product">
             <div class="col-md-2">
-                <a href="product_info.htm">
+                <a href="${pageContext.request.contextPath}/product?method=find&id=${product.pid}">
                     <img src="${pageContext.request.contextPath}/${product.pimage}" width="170" height="170"
                          style="display: inline-block;">
                 </a>
@@ -110,7 +110,7 @@
     <div style="overflow: hidden;">
 
         <ul style="list-style: none;">
-            <li style="width: 150px;height: 216;float: left;margin: 0 8px 0 0;padding: 0 18px 15px;text-align: center;">
+            <li style="width: 150px;height: 216px;float: left;margin: 0 8px 0 0;padding: 0 18px 15px;text-align: center;">
                 <img src="${pageContext.request.contextPath}/products/1/cs10001.jpg" width="130px" height="130px"/></li>
         </ul>
 
@@ -134,7 +134,7 @@
     </ul>
 </div>
 <div style="text-align: center;margin-top: 5px;margin-bottom:20px;">
-    Copyright &copy; 2005-2016 传智商城 版权所有
+    Copyright &copy; 2005-2016 版权所有
 </div>
 
 </body>

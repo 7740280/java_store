@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet(name = "findByCategoryServlet", urlPatterns = "/product")
 public class findByCategoryServlet extends BaseServlet
@@ -52,5 +53,25 @@ public class findByCategoryServlet extends BaseServlet
         }
 
         return "/jsp/product_info.jsp";
+    }
+
+    public String findList(HttpServletRequest request, HttpServletResponse response)
+    {
+        try {
+            ProductService productService = new ProductServiceImpl();
+            //查找热门商品
+            List<Product> hot = productService.findHot();
+            //查找最新商品
+            List<Product> aNew = productService.findNew();
+
+            request.setAttribute("hot", hot);
+            request.setAttribute("aa", aNew);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("msg", "查询商品失败!");
+            return "/jsp/info.jsp";
+        }
+
+        return "/jsp/index.jsp";
     }
 }

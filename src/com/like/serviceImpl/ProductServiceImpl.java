@@ -46,4 +46,18 @@ public class ProductServiceImpl implements ProductService
         ProductDao productDao = new ProductDaoImpl();
         return productDao.one(id);
     }
+
+    @Override
+    public List<Product> findHot() throws SQLException
+    {
+        ProductDao productDao = new ProductDaoImpl();
+        return productDao.findHot();
+    }
+
+    @Override
+    public List<Product> findNew() throws SQLException
+    {
+        ProductDao productDao = new ProductDaoImpl();
+        return productDao.findNew();
+    }
 }

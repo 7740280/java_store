@@ -14,4 +14,8 @@ public interface ProductDao
     List<Product> findList(String id, int i, int pageSize) throws SQLException;
 
     Product one(String id) throws SQLException;
+
+    List<Product> findHot() throws SQLException;
+
+    List<Product> findNew() throws SQLException;
 }

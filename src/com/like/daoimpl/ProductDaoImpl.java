@@ -9,7 +9,6 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
 
-import javax.management.Query;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -43,5 +42,21 @@ public class ProductDaoImpl implements ProductDao
         QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
         String      sql         = "select * from product where pid = ? ";
         return queryRunner.query(sql, new BeanHandler<Product>(Product.class), id);
+    }
+
+    @Override
+    public List<Product> findHot() throws SQLException
+    {
+        QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
+        String      sql         = "select * from product where is_hot = 0 limit 0 , 9 ";
+        return queryRunner.query(sql, new BeanListHandler<Product>(Product.class));
+    }
+
+    @Override
+    public List<Product> findNew() throws SQLException
+    {
+        QueryRunner queryRunner = new QueryRunner(DataSourceUtils.getDataSource());
+        String      sql         = "select * from product order by pdate desc limit 0, 9";
+        return queryRunner.query(sql, new BeanListHandler<Product>(Product.class));
     }
 }

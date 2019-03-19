@@ -5,7 +5,7 @@ public class Product
     private String   pid;
     private String   pname;
     private String   market_price;
-    private String   shop_price;
+    private double   shop_price;
     private String   pimage;
     private String   pdate;
     private String   is_hot;
@@ -13,6 +13,23 @@ public class Product
     private String   pflag;
     //外键使用对象来表示
     private Category category;
+
+    @Override
+    public String toString()
+    {
+        return "Product{" +
+                "pid='" + pid + '\'' +
+                ", pname='" + pname + '\'' +
+                ", market_price='" + market_price + '\'' +
+                ", shop_price=" + shop_price +
+                ", pimage='" + pimage + '\'' +
+                ", pdate='" + pdate + '\'' +
+                ", is_hot='" + is_hot + '\'' +
+                ", pdesc='" + pdesc + '\'' +
+                ", pflag='" + pflag + '\'' +
+                ", category=" + category +
+                '}';
+    }
 
     public String getPid()
     {
@@ -44,12 +61,12 @@ public class Product
         this.market_price = market_price;
     }
 
-    public String getShop_price()
+    public double getShop_price()
     {
         return shop_price;
     }
 
-    public void setShop_price(String shop_price)
+    public void setShop_price(double shop_price)
     {
         this.shop_price = shop_price;
     }
@@ -112,22 +129,5 @@ public class Product
     public void setCategory(Category category)
     {
         this.category = category;
-    }
-
-    @Override
-    public String toString()
-    {
-        return "Product{" +
-                "pid='" + pid + '\'' +
-                ", pname='" + pname + '\'' +
-                ", market_price='" + market_price + '\'' +
-                ", shop_price='" + shop_price + '\'' +
-                ", pimage='" + pimage + '\'' +
-                ", pdate='" + pdate + '\'' +
-                ", is_hot='" + is_hot + '\'' +
-                ", pdesc='" + pdesc + '\'' +
-                ", pflag='" + pflag + '\'' +
-                ", category=" + category +
-                '}';
     }
 }

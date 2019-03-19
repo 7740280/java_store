@@ -6,7 +6,6 @@ import com.like.serviceImpl.UserServiceImpl;
 import com.like.utils.MailUtils;
 import com.like.utils.UUIDUtils;
 import org.apache.commons.beanutils.BeanUtils;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;

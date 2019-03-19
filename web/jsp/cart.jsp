@@ -59,11 +59,12 @@
                     <th>小计</th>
                     <th>操作</th>
                 </tr>
-                <c:forEach items="${cart.map}"  var="m">
+                <c:forEach items="${cart.map}" var="m">
                     <tr class="active">
                         <td width="60" width="40%">
                             <input type="hidden" name="id" value="22">
-                            <img src="${pageContext.request.contextPath}/${m.value.product.pimage}" width="70" height="60">
+                            <img src="${pageContext.request.contextPath}/${m.value.product.pimage}" width="70"
+                                 height="60">
                         </td>
                         <td width="30%">
                             <a target="_blank"> ${m.value.product.pname}</a>
@@ -91,11 +92,12 @@
         <div style="text-align:right;">
             <em style="color:#ff6600;">
                 登录后确认是否享有优惠&nbsp;&nbsp;
-            </em> 赠送积分: <em style="color:#ff6600;">${cart.total}</em>&nbsp; 商品金额: <strong style="color:#ff6600;">￥${cart.total}</strong>
+            </em> 赠送积分: <em style="color:#ff6600;">${cart.total}</em>&nbsp; 商品金额: <strong
+                style="color:#ff6600;">￥${cart.total}</strong>
         </div>
         <div style="text-align:right;margin-top:10px;margin-bottom:10px;">
             <a href="${pageContext.request.contextPath}/cart?method=removeAll" id="clear" class="clear">清空购物车</a>
-            <a href="order_info.htm">
+            <a href="${pageContext.request.contextPath}/order?method=addOrder">
                 <input type="submit" width="100" value="提交订单" name="submit" border="0"
                        style="background: url('${pageContext.request.contextPath}/images/register.gif') no-repeat scroll 0 0 rgba(0, 0, 0, 0);
                                height:35px;width:100px;color:white;">

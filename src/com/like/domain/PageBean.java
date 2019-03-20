@@ -2,7 +2,7 @@ package com.like.domain;
 
 import java.util.List;
 
-public class PageBean
+public class PageBean<T>
 {
     //当前页
     private Integer       currentPage;
@@ -13,7 +13,7 @@ public class PageBean
     //总页数
     private Integer       totalPage;
     //每页显示的数据
-    private List<Product> productList;
+    private List<T> productList;
 
     public Integer getCurrentPage()
     {
@@ -55,12 +55,12 @@ public class PageBean
         this.totalPage = totalPage;
     }
 
-    public List<Product> getProductList()
+    public List<T> getProductList()
     {
         return productList;
     }
 
-    public void setProductList(List<Product> productList)
+    public void setProductList(List<T> productList)
     {
         this.productList = productList;
     }

@@ -33,8 +33,8 @@
         <c:if test="${not empty user}">
             <ol class="list-inline">
                 <li><a href="${pageContext.request.contextPath}/user?method=loginView">欢迎你:${user.username}</a></li>
-                <li><a href="cart.htm">购物车</a></li>
-                <li><a href="cart.htm">我的订单</a></li>
+                <li><a href="${pageContext.request.contextPath}/cart?method=index">购物车</a></li>
+                <li><a href="${pageContext.request.contextPath}/order?method=index&page=1">我的订单</a></li>
                 <li><a href="${pageContext.request.contextPath}/user?method=logout">退出</a></li>
             </ol>
         </c:if>

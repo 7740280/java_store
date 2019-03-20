@@ -5,7 +5,6 @@ import com.like.domain.CartItem;
 import com.like.domain.Product;
 import com.like.service.ProductService;
 import com.like.serviceImpl.ProductServiceImpl;
-import com.sun.deploy.net.HttpResponse;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -90,5 +89,10 @@ public class CartServlet extends BaseServlet
         }
 
         return null;
+    }
+
+    public String index(HttpServletRequest request, HttpServletResponse response)
+    {
+        return "/jsp/cart.jsp";
     }
 }

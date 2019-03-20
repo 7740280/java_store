@@ -4,6 +4,7 @@ import com.like.domain.*;
 import com.like.service.OrderService;
 import com.like.serviceImpl.OrderServiceImpl;
 import com.like.utils.UUIDUtils;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +36,7 @@ public class OrderServlet extends BaseServlet
             //设置订单号
             orders.setOid(UUIDUtils.getUUID());
             //设置下单时间
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String           date             = simpleDateFormat.format(new Date());
             orders.setOrdertime(date);
             //获取总净额
@@ -62,6 +63,8 @@ public class OrderServlet extends BaseServlet
 
             OrderService orderService = new OrderServiceImpl();
             orderService.save(orders);
+            //清空购物车
+            cart.clear();
             request.setAttribute("orders", orders);
 
         } catch (Exception e) {
@@ -71,5 +74,29 @@ public class OrderServlet extends BaseServlet
         }
 
         return "/jsp/order_info.jsp";
+    }
+
+    public String index(HttpServletRequest request, HttpServletResponse response)
+    {
+        try {
+            //获取用户
+            HttpSession session = request.getSession();
+            User        user    = (User) session.getAttribute("user");
+            //获取页数
+            String page = request.getParameter("page");
+            //设置每页显示条数
+            int num = 5;
+
+            OrderService orderService = new OrderServiceImpl();
+            PageBean     list         = orderService.getList(user, page, num);
+
+            request.setAttribute("orders", list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("msg", "查询失败");
+            return "/jsp/info.jsp";
+        }
+
+        return "/jsp/order_list.jsp";
     }
 }

@@ -17,4 +17,6 @@ public interface OrderDao
     List<Orders> getList(User user, String page, int num) throws Exception;
 
     int getCount(User user) throws SQLException;
+
+    Orders find(String id) throws Exception;
 }

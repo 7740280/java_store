@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>会员登录</title>
+    <title>商城</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css" type="text/css"/>
     <script src="${pageContext.request.contextPath}/js/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
@@ -40,7 +40,10 @@
                     <c:forEach items="${orders.productList}" var="order">
                         <tbody>
                         <tr class="success">
-                            <th colspan="5">订单编号:${order.oid}</th>
+                            <th colspan="4">订单编号:${order.oid}</th>
+                            <td>
+                                <a href="${pageContext.request.contextPath}/order?method=orderInfo&id=${order.oid}" style="color: red;">去付款</a>
+                            </td>
                         </tr>
                         <tr class="warning">
                             <th>图片</th>
@@ -63,7 +66,7 @@
                                     ￥${item.product.shop_price}
                                 </td>
                                 <td width="10%">
-                                   ${item.count}
+                                        ${item.count}
                                 </td>
                                 <td width="15%">
                                     <span class="subtotal">￥${item.subtotal}</span>
@@ -82,7 +85,7 @@
             <c:if test="${orders.currentPage == 1}">
                 <li class="disabled">
                     <a
-                       aria-label="Previous">
+                            aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span></a>
                 </li>
             </c:if>

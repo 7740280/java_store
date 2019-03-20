@@ -10,4 +10,6 @@ public interface OrderService
     void save(Orders orders) throws SQLException;
 
     PageBean getList(User user, String page, int num) throws Exception;
+
+    Orders find(String id) throws Exception;
 }

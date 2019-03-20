@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -98,5 +99,21 @@ public class OrderServlet extends BaseServlet
         }
 
         return "/jsp/order_list.jsp";
+    }
+
+    public String orderInfo(HttpServletRequest request, HttpServletResponse response)
+    {
+        try {
+            String       id           = request.getParameter("id");
+            OrderService orderService = new OrderServiceImpl();
+            Orders       orders       = orderService.find(id);
+            request.setAttribute("orders", orders);
+        } catch (Exception e) {
+            e.printStackTrace();
+            request.setAttribute("msg", "查询订单失败");
+            return "/jsp/info.jsp";
+        }
+
+        return "/jsp/order_info.jsp";
     }
 }

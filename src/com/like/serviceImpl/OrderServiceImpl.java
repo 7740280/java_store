@@ -69,4 +69,11 @@ public class OrderServiceImpl implements OrderService
 
         return pageBean;
     }
+
+    @Override
+    public Orders find(String id) throws Exception
+    {
+        OrderDao orderDao = new OrderDaoImpl();
+        return orderDao.find(id);
+    }
 }
